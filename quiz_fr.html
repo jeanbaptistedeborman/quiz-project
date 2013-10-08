@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<title>QUIZ anti-blanchiment</title>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+		<link href ='css/reset.css' rel='stylesheet' type='text/css'>
+		<link href ='css/quizz.css' rel='stylesheet' type='text/css'>
+
+		<script>
+			var lg = 'fr';
+		</script>
+
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+	
+
+		<!--files from the quiz-->
+		<script src="scripts/jb/devtools/utils.js"></script>
+		<script src="scripts/jb/maths/conversions.js"></script>
+		<script src="scripts/jb/game/timer.js"></script>
+		<script src="scripts/jb/game/quizz.js"></script>
+		<script src="scripts/jb/implementations/quizz_ipi.js"></script>
+		<script src="scripts/jb/animation/spriteAnimation.js"></script>
+	</head>
+
+	<body>
+
+		<div class='page' id='intro'>
+
+			<h1>QUIZ anti-blanchiment</h1>
+			<div id="userTracks"></div><div id ='timer'></div>
+			<div id = 'content'>
+				<p>
+					Argent sale et immobilier, le lien semble évident pour beaucoup. Aussi, le gouvernement souhaite mettre un terme à cette perception et entend donner un sérieux coup d’accélérateur à la lutte contre le blanchiment d’argent. L’an dernier, seule une petite poignée d’agents immobiliers a fait part de ses soupçons à la Cellule de Traitement des Informations Financières (CTIF), mieux connue comme la cellule anti-blanchiment. A peine 22 déclarations ont été rentrées ! Les autorités en attendent plus. Beaucoup plus.
+				</p>
+				<p>
+					Ce quiz vous offre la possibilité de tester de manière ludique vos connaissances quant à la législation en vigueur. Vous n’avez pas dix sur dix ? Votre score est décevant ? L’IPI vous propose des solutions !
+				</p>
+				<span class='button' id='startButton'>> Commencez le quiz</span>
+			</div>
+		</div>
+		<div class='footer'>
+			Institut professionnel des agents immobiliers - <a href = 'http://www.ipi.be'>www.ipi.be</a>
+		</div>
+		<div id="endScreen">
+			<div class='result'>
+				result
+			</div>
+			<span id = 'playAgain' >> Rejouer</span>
+
+			<div max='10' class='feedBackEnd'>
+				Bravo ! Vous connaissez vos obligations en matière de lutte contre le blanchiment.
+				<p>
+					Nous vous remercions d’avoir participé à ce quiz. Le gouvernement souhaite veiller davantage au respect des obligations en matière de lutte contre le blanchiment. Les contrôles seront donc inévitables. Aussi, l’IPI organise des formations pour vous familiariser de manière concrète à la législation en vigueur.
+			</div>
+
+			<div max ='8' class='feedBackEnd'>
+				Pas mauvais… Vous maîtrisez le sujet, mais quelques détails vous échappent encore. N’hésitez pas à refaire ce quiz autant de fois que nécessaire.
+				<p>
+					Le gouvernement souhaite veiller davantage au respect des obligations en matière de lutte contre le blanchiment. Les contrôles seront donc inévitables. Aussi, l’IPI organise des formations pour vous familiariser de manière concrète à la législation en vigueur.
+			</div>
+
+			<div max = '6' class='feedBackEnd'>
+				Pas terrible… Vous pouvez mieux faire !
+				<p>
+					N’hésitez pas à refaire ce quiz autant de fois que nécessaire.
+					<p>
+						Le gouvernement souhaite veiller davantage au respect des obligations en matière de lutte contre le blanchiment. Les contrôles seront donc inévitables. Aussi, l’IPI organise des formations pour vous familiariser de manière concrète à la législation en vigueur.
+			</div>
+
+			<div max = '4' class='feedBackEnd'>
+				Ouille…  Vos connaissances sont insuffisantes. N’hésitez pas à refaire ce quiz autant de fois que nécessaire.
+				<p>
+					Le gouvernement souhaite veiller davantage au respect des obligations en matière de lutte contre le blanchiment. Les contrôles seront donc inévitables. Aussi, l’IPI organise des formations pour vous familiariser de manière concrète à la législation en vigueur.
+			</div>
+
+			<div id='endNav'>
+				<a class='button' target ='_blank'  href='http://www.ipi.be/admin/userfiles/file/FR/Nouveau%20site/Textes%20juridiques/Legislation%20en%20matiere%20de%20blanchiment%20argent_130321.pdf' id='infoButton'>Connaître vos obligations en matière de blanchiment</a>
+				<a class='button' target ='_blank' href= 'http://www.ipi.be/NV_2_N_3.php?lingua=FR' id='inscriptionButton'>Inscription aux formations</a>
+			</div>
+
+		</div>
+
+		<div id="labels">
+			<span id = 'true'>Juste!</span>
+			<span id = 'false'>Faux!</span>
+		</div>
+		<div id="data">
+			<div class="questionSet" test='1'>
+				<div class="question">
+					Selon la loi anti-blanchiment, vous êtes tenu, en tant qu’agent immobilier, d’archiver certains documents relatifs aux transactions dans lesquelles vous êtes intervenu. Combien de temps devez-vous conserver ces documents au minimum ?
+				</div>
+				<div class="reponse">
+					Un an
+				</div>
+				<div class="reponse">
+					Deux ans
+				</div>
+				<div class="reponse">
+					Cinq ans
+				</div>
+				<div class="reponse">
+					Dix ans
+				</div>
+				<div class="solution">
+					3
+				</div>
+			</div>
+
+			<div class="questionSet" test='2'>
+				<div class="question">
+					En tant qu’agent immobilier, vous êtes impliqué dans une transaction dans laquelle vous soupçonnez une opération de blanchiment d’argent. Vous n’en informez toutefois pas la cellule anti-blanchiment. Quels risques encourez-vous ?
+				</div>
+				<div class="reponse">
+					Vous pouvez être poursuivi sur le plan pénal.
+				</div>
+				<div class="reponse">
+					Vous ne pouvez pas être poursuivi sur le plan pénal, car vous n’êtes pas la personne qui blanchit l’argent.
+				</div>
+				<div class="reponse">
+					Le vendeur peut exiger que vous payiez des dommages-intérêts s’élevant à 10 % du prix de vente.
+				</div>
+				<div class="reponse">
+					Le vendeur peut exiger que vous payiez des dommages-intérêts s’élevant à 20 % du prix de vente.
+				</div>
+				<div class="solution">
+					1
+				</div>
+			</div>
+
+			<div class="questionSet" test='3'>
+				<div class="question">
+					Lundi, vous êtes intervenu dans une transaction dans laquelle vous soupçonnez une opération de blanchiment d’argent. Vous en informez la cellule anti-blanchiment le mardi. Jeudi, vous n’avez toutefois toujours pas reçu de réaction de leur part, mais les parties souhaitent signer le compromis. Pouvez-vous poursuivre cette transaction ?
+				</div>
+				<div class="reponse">
+					Oui
+				</div>
+				<div class="reponse">
+					Non
+				</div>
+				<div class="solution">
+					2
+				</div>
+			</div>
+
+			<div class="questionSet" test='4'>
+				<div class='question'>
+					La loi anti-blanchiment impose aux agents immobiliers « d’identifier » leurs clients. En quoi consiste cette obligation ?
+				</div>
+				<div class="reponse">
+					Vous devez demander les données d’identité de vos clients.
+				</div>
+				<div class="reponse">
+					Vous devez vérifier l’identité de vos clients à l’aide d’une pièce d’identité.
+				</div>
+				<div class="reponse">
+					Vous devez prendre une copie du document mentionnant clairement les données d’identité de vos clients.
+				</div>
+				<div class="reponse">
+					Vous devez prendre une copie du document mentionnant clairement les données d’identité de vos clients et en vérifier l’authenticité auprès des autorités compétentes.
+				</div>
+				<div class="solution">
+					3
+				</div>
+			</div>
+
+			<div class="questionSet" test='5'>
+				<div class="question">
+					En tant qu’agent immobilier, vous êtes contacté par une firme nigériane qui souhaite vendre un bien immobilier industriel. Lors de la signature du compromis, vous constatez que l’acompte de 250.000 euros est payé en espèces. Que devez-vous faire ?
+				</div>
+				<div class="reponse">
+					Vous devez proposer aux parties de conserver l’acompte jusqu’à la signature de l’acte authentique de vente et remettre ensuite cette somme aux autorités.
+				</div>
+				<div class="reponse">
+					Vous devez avertir la cellule anti-blanchiment de la situation et en informer le vendeur.
+				</div>
+				<div class="reponse">
+					Vous devez avertir la cellule anti-blanchiment de la situation, sans en informer le vendeur.
+				</div>
+				<div class="reponse">
+					Vous devez avertir la cellule anti-blanchiment, l’IPI ainsi que le procureur du Roi de la situation.
+				</div>
+				<div class="solution">
+					3
+				</div>
+			</div>
+
+			<div class="questionSet" test='6'>
+				<div class="question">
+					Un acheteur vient juste de verser l’acompte pour sa future habitation, mais en tant qu’agent immobilier, vous soupçonnez qu’il s’agit d’une opération de blanchiment d’argent. Dans une telle situation, vous devez …
+				</div>
+				<div class="reponse">
+					le signaler par téléphone à la cellule anti-blanchiment.
+				</div>
+				<div class="reponse">
+					le signaler par écrit/électroniquement à la cellule anti-blanchiment.
+				</div>
+				<div class="reponse">
+					ne rien faire, du moins tant que cela reste au stade de soupçons.
+				</div>
+				<div class="solution">
+					2
+				</div>
+			</div>
+
+			<div class="questionSet" test='7'>
+				<div class="question">
+					Un acheteur peut payer l’habitation qu’il achète en espèces, mais jusqu’à un montant de …
+				</div>
+				<div class="reponse">
+					5 % du prix de vente, et pour autant que la somme n’excède pas les 10.000 euros.
+				</div>
+				<div class="reponse">
+					10 % du prix de vente, et pour autant que la somme n’excède pas les 5.000 euros.
+				</div>
+				<div class="reponse">
+					15 % du prix de vente, et pour autant que la somme n’excède pas les 15.000 euros.
+				</div>
+				<div class="reponse">
+					Il n’existe aucune exception. Les paiements en espèces sont interdits.
+				</div>
+				<div class="solution">
+					2
+				</div>
+			</div>
+
+			<div class="questionSet" test='8'>
+				<div class="question">
+					Le numéro du compte que l’acheteur utilise pour acheter le bien …
+				</div>
+				<div class="reponse">
+					ne doit pas être mentionné, ni sur le compromis de vente ni sur l’acte de vente notarié.
+				</div>
+				<div class="reponse">
+					doit uniquement être mentionné sur l’acte de vente notarié.
+				</div>
+				<div class="reponse">
+					doit être mentionné sur le compromis de vente sous seing privé. Si tel n’est pas le cas, l’agent immobilier concerné par la rédaction du compromis de vente doit le signaler par écrit auprès de la cellule anti-blanchiment.
+				</div>
+				<div class="reponse">
+					doit uniquement être mentionné dans le compromis de vente sous seing privé. Si tel n’est pas le cas, l’agent immobilier doit le signaler au notaire.
+				</div>
+				<div class="solution">
+					3
+				</div>
+			</div>
+
+			<div class="questionSet" test='9'>
+				<div class="question">
+					Dans quelle situation la vigilance doit-elle être de mise ?
+				</div>
+				<div class="reponse">
+					Un client achète un bien sans contracter d’emprunt.
+				</div>
+				<div class="reponse">
+					Un client insiste pour faire appel à son propre notaire dans le cadre de l’achat d’un bien.
+				</div>
+				<div class="reponse">
+					Un acheteur potentiel insiste pour réduire sérieusement le prix de vente demandé.
+				</div>
+				<div class="reponse">
+					L’acheteur ne dispose d’aucun apport personnel et doit emprunter l’ensemble du prix d’achat ainsi que les frais.
+				</div>
+				<div class="solution">
+					1
+				</div>
+			</div>
+
+			<div class="questionSet" test='10'>
+				<div class="question">
+					En tant qu’agent immobilier, vous êtes tenu de …
+				</div>
+				<div class="reponse">
+					désigner un responsable anti-blanchiment au sein de votre entreprise. Celui-ci doit être informé de la législation anti-blanchiment.
+				</div>
+				<div class="reponse">
+					désigner un responsable anti-blanchiment au sein de votre entreprise et informer les autres collaborateurs par rapport à la législation anti-blanchiment.
+				</div>
+				<div class="reponse">
+					de désigner un responsable anti-blanchiment au sein de votre entreprise, informer les autres collaborateurs par rapport à la législation anti-blanchiment et vous assurer que vos collaborateurs sont suffisamment fiables d’un point de vue professionnel.
+				</div>
+				<div class="solution">
+					3
+				</div>
+			</div>
+
+			<div class="questionSet" test='11'>
+				<div class="question">
+					La loi anti-blanchiment s’applique aux courtiers, aux syndics et aux régisseurs.
+				</div>
+				<div class="reponse">
+					Oui
+				</div>
+				<div class="reponse">
+					Non, uniquement aux courtiers et syndics
+				</div>
+				<div class="reponse">
+					Non, uniquement aux syndics et régisseurs
+				</div>
+				<div class="reponse">
+					Non, uniquement aux courtiers et régisseurs
+				</div>
+				<div class="solution">
+					1
+				</div>
+			</div>
+
+			<div class="questionSet" test='12'>
+				<div class="question">
+					Selon une nouveauté qui entrera prochainement en vigueur, toute agence immobilière sera tenue de …
+				</div>
+				<div class="reponse">
+					demander à ses clients s’ils ont introduit une procédure de régularisation fiscale (loi d’amnistie fiscale) et, le cas échéant, en informer la cellule anti-blanchiment.
+				</div>
+				<div class="reponse">
+					rédiger un rapport d’activité relatif aux obligations en matière d’anti-blanchiment et le transmettre au SPF Economie.
+				</div>
+				<div class="reponse">
+					mentionner les coordonnées du responsable anti-blanchiment sur le site de l’agence immobilière.
+				</div>
+				<div class="solution">
+					2
+				</div>
+			</div>
+
+			<div class="questionSet" test='13'>
+				<div class="question">
+					Quelle situation peut-elle être considérée comme suspecte ?
+				</div>
+				<div class="reponse">
+					Un client n’accepte de signer le compromis qu’à la condition suspensive d’obtention d’un prêt hypothécaire.
+				</div>
+				<div class="reponse">
+					Un acheteur potentiel souhaite payer directement le prix demandé, sans essayer de le négocier à la baisse.
+				</div>
+				<div class="reponse">
+					Un client souhaite acheter un bien directement et ce, sans même l’avoir visité une seule fois.
+				</div>
+				<div class="solution">
+					3
+				</div>
+			</div>
+
+			<div class="questionSet" test='14'>
+				<div class="question">
+					En tant qu’agent immobilier, vous devez identifier vos clients, tout comme leurs éventuels mandataires. Cette identification comporte au minimum …
+				</div>
+				<div class="reponse">
+					prénom, nom, date et lieu de naissance
+				</div>
+				<div class="reponse">
+					prénom, nom, date et lieu de naissance et domicile
+				</div>
+				<div class="reponse">
+					prénom, nom, date et lieu de naissance, domicile et nationalité
+				</div>
+				<div class="reponse">
+					prénom, nom et date de naissance
+				</div>
+				<div class="solution">
+					1
+				</div>
+			</div>
+
+			<div class="questionSet" test='15'>
+				<div class="question">
+					En tant qu’agent immobilier, vos clients peuvent vous rémunérer pour vos services, mais uniquement …
+				</div>
+				<div class="reponse">
+					via un virement sur un compte en banque, qui est signalé à l’IPI.
+				</div>
+				<div class="reponse">
+					pour une somme en espèces qui n’excède pas 10 % du prix de vos services (si le prix total excède la somme de 5.000 euros), et pour autant que ce montant n’excède pas 5.000 euros.
+				</div>
+				<div class="reponse">
+					en espèces
+				</div>
+				<div class="reponse">
+					via un chèque certifié par la banque.
+				</div>
+				<div class="solution">
+					2
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+
+</html>
