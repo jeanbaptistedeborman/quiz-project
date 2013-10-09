@@ -83,9 +83,9 @@ $(document).ready(function() {"use strict";
 		$('.page').width('80%');
 
 		$('.page').height('100%');
-		$('.page,.reponse,.button').css('font-size', '14px');
-		$('.question').css('font-size', '12px');
-		$('h1').css('font-size', '24px').css('background-repeat', 'no-repeat');
+		$('.page,.reponse,.button').css('font-size', '15px');
+		$('.question').css('font-size', '15px');
+		$('h1').css('font-size', '30px').css('background-repeat', 'no-repeat');
 
 		$('.reponse').css("padding", "5px");
 		$('.footer').css('color', '#FFFFFF').css('font-size', '20px');
@@ -100,7 +100,8 @@ $(document).ready(function() {"use strict";
 		$('body').css('background-image', "url('img/bg.jpg')");
 		$('body').css('background-repeat', 'repeat-x');
 
-		$('.footer').css('margin-top', '60px');
+		$('.footer').css('margin-top', '60px').css ('font-size', '12px');
+		
 
 		$('footer').hide();
 

@@ -3,10 +3,8 @@
 /*jslint vars:true, plusplus:true */
 /*global $, getClickEvent */
 
-
 var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, questions_num) {"use strict";
 	var context = this, questionSet_$;
-
 
 	this.questions_num = questions_num;
 	this.userTrack_$ = userTrack_$;
@@ -23,14 +21,6 @@ var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, question
 	content_$.hide();
 	content_$.find('.solution').hide();
 
-
-
-
-	
-	
-
-
-	
 	var endOfGame = function() {
 
 		var feedBack_num;
@@ -82,8 +72,6 @@ var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, question
 		}
 	};
 
-	
-	
 	var displayFeedBack = function(success_bool, event) {
 		questionSet_$.attr("success_bool", success_bool);
 		var responseList_$ = $(questionSet_$.find(".reponse"));
@@ -136,7 +124,7 @@ var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, question
 		context.onQuestionAnswer();
 
 	};
-		this.timeOut = function() {
+	this.timeOut = function() {
 		displayFeedBack(false);
 	};
 	this.afficheQuestion = function(selectedQuestion_$) {
@@ -150,7 +138,6 @@ var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, question
 		display_$.fadeIn(400);
 		display_$.append(questionSet_$);
 		responseList_$.hide();
-	
 
 		function showReponse() {
 			responseList_$.each(function(index, element) {
@@ -163,11 +150,10 @@ var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, question
 					opacity : 1
 				}, speed_num, context.onStartQuestion);
 
-			}); 
+			});
 		}
 
 		showReponse();
-
 
 		responseList_$.bind(getClickEvent(), function(event) {
 
@@ -191,7 +177,7 @@ var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, question
 			displayFeedBack(success_bool, event);
 		});
 	};
-	
+
 	var init = function() {
 		var IMG_WIDTH = 24, display_time = 0, n;
 		context.answer_num = 0;
@@ -203,7 +189,7 @@ var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, question
 		context.userTrack_$.empty();
 
 		var space_pix = Math.floor((context.userTrack_$.width() - (IMG_WIDTH * context.questions_num)) / (questions_num - 1));
-		for (n = 0; n < context.questions_num; n++) {
+		for ( n = 0; n < context.questions_num; n++) {
 
 			var img_$ = $("<img src='img/mark0001.jpg' alt='progress'>");
 
@@ -215,8 +201,8 @@ var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, question
 		}
 		context.userTrack_$.fadeIn(4000, selectQuestion);
 	};
-	
-		context.endScreen_$.find('#playAgain').click(function() {
+
+	context.endScreen_$.find('#playAgain').click(function() {
 
 		init();
 
@@ -226,6 +212,5 @@ var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, question
 		init();
 
 	};
-	
-	
-}; 
+
+};
