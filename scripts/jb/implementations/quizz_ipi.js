@@ -100,7 +100,7 @@ $(document).ready(function() {"use strict";
 		$('body').css('background-image', "url('img/bg.jpg')");
 		$('body').css('background-repeat', 'repeat-x');
 
-		$('.footer').css('margin-top', '60px').css ('font-size', '12px');
+		$('.footer').css('margin-top', '60px').css ('font-size', '12px').css ("position", "fixed").css ("bottom", "5px");
 		
 
 		$('footer').hide();
