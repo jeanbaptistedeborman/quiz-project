@@ -80,7 +80,7 @@ $(document).ready(function() {"use strict";
 
 	});
 	if (isMobile.any() || true) {
-		$('.page').width('80%');
+		$('.page').width('90%');
 
 		$('.page').height('100%');
 		$('.page,.reponse,.button').css('font-size', '15px');
