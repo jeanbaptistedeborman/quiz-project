@@ -1,5 +1,10 @@
 // JavaScript Document
 
+/*global isMobile, Audio, Quizz_jb,$, Animation_jb, Timer_jb,lg*/
+/*jslint vars:true, plusplus:true */
+
+var img_json;
+
 function startQuiz() {"use strict";
 	var chrome_bool = navigator.userAgent.indexOf('Chrome') !== -1, safari_bool = navigator.userAgent.indexOf('Safari') !== -1 && !chrome_bool, ie_bool = navigator.userAgent.indexOf('MSIE') !== -1, mozilla_bool = (navigator.userAgent.indexOf('Mozilla') !== -1 && !ie_bool && !safari_bool), falseSound, trueSound, quizz, clock, timer;
 	if (safari_bool) {
@@ -74,13 +79,13 @@ $(document).ready(function() {"use strict";
 		});
 
 	});
-	if (isMobile.any()) {
-
-		$('.page').width('80%');
+	if (isMobile.any() || true) {
+		$('.page').width('90%');
 
 		$('.page').height('100%');
-		$('.page,.question,.reponse,.button').css('font-size', '24px');
-		$('h1').css('font-size', '30px').css('background', "url('img/logo30_" + lg + ".png')").css('background-repeat', 'no-repeat');
+		$('.page,.reponse,.button').css('font-size', '20px');
+		$('.question').css('font-size', '18px');
+		$('h1').css('font-size', '30px').css('background-repeat', 'no-repeat');
 
 		$('.reponse').css("padding", "5px");
 		$('.footer').css('color', '#FFFFFF').css('font-size', '20px');
@@ -99,10 +104,7 @@ $(document).ready(function() {"use strict";
 
 		$('footer').hide();
 
-	} else {
-		//$('body').css('background', "url('img/logo260_" + lg + ".png')").css('background-repeat', 'no-repeat');
 	}
-
 	$('.reponse').addClass('button');
 	var endButtonWidth = ($('.page').width() / 2 - 50);
 	$('#endNav a').width(endButtonWidth);
@@ -110,7 +112,7 @@ $(document).ready(function() {"use strict";
 
 });
 
-var img_json = {
+img_json = {
 	"frames" : [{
 		"filename" : "reveil instance 10000",
 		"frame" : {
