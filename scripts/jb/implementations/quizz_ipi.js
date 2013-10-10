@@ -106,10 +106,7 @@ $(document).ready(function() {"use strict";
 		
 
 		$('footer').hide();
-		$('#infoButton').ccs ("float", "none").width ('100%');
-		$('#infoButton').css ('margin', '0');
-		$('#inscriptionButton').css ('float', 'none'); 
-
+		$("#endNav").css ('display', 'none'); 
 	} else {
 		var endButtonWidth = ($('.page').width() / 2 - 50);
 		$('#endNav a').width(endButtonWidth);
