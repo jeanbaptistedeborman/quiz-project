@@ -79,15 +79,17 @@ $(document).ready(function() {"use strict";
 		});
 
 	});
-	if (isMobile.any() || true) {
+	if (isMobile.any()) {
+		/*Should go in the css and be implemented with addClass*/
+		
 		$('.page').width('80%');
 
 		$('.page').height('100%');
-		$('.page,.reponse,.button').css('font-size', '15px');
+		$('.page,.response,.button').css('font-size', '15px');
 		$('.question').css('font-size', '15px');
 		$('h1').css('font-size', '30px').css('background-repeat', 'no-repeat');
 
-		$('.reponse').css("padding", "5px");
+		$('.response').css("padding", "5px");
 		$('.footer').css('color', '#FFFFFF').css('font-size', '20px');
 		$('.footer a').css('color', '#FFFFFF');
 		$('.page').css('margin-top', '20px');
@@ -104,12 +106,22 @@ $(document).ready(function() {"use strict";
 		
 
 		$('footer').hide();
+		$('#infoButton').ccs ("float", "none").width ('100%');
+		$('#infoButton').css ('margin', '0');
+		$('#inscriptionButton').css ('float', 'none'); 
 
+	} else {
+		var endButtonWidth = ($('.page').width() / 2 - 50);
+		$('#endNav a').width(endButtonWidth);
+	
+		
+		
+		
 	}
-	$('.reponse').addClass('button');
-	var endButtonWidth = ($('.page').width() / 2 - 50);
-	$('#endNav a').width(endButtonWidth);
-	$('#endNav a').height($($('#endNav a')[0]).height() + 20);
+	$('.response').addClass('button');
+	
+
+	
 
 });
 

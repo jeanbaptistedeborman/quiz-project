@@ -36,7 +36,8 @@ var isMobile = {
     },
     any: function() {
    "use strict"; 
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+        //return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+        return true; 
     }
 };
 function getClickEvent(){

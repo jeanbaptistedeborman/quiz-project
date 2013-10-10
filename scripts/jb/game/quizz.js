@@ -1,7 +1,7 @@
 // JavaScript Document
 
 /*jslint vars:true, plusplus:true */
-/*global $, getClickEvent */
+/*global $, getClickEvent, isMobile */
 
 var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, questions_num) {"use strict";
 	var context = this, questionSet_$;
@@ -55,6 +55,9 @@ var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, question
 		$('#timer').hide();
 		endScreen_$.show(300);
 
+		if (!isMobile.any()) {
+			$('#endNav a').height($($('#endNav a')[0]).height());
+		}
 	};
 	var selectQuestion = function() {
 
@@ -74,7 +77,7 @@ var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, question
 
 	var displayFeedBack = function(success_bool, event) {
 		questionSet_$.attr("success_bool", success_bool);
-		var responseList_$ = $(questionSet_$.find(".reponse"));
+		var responseList_$ = $(questionSet_$.find(".response"));
 		var startPoint = {};
 		var text_str = $('#' + String(success_bool)).text();
 		text_str = text_str.toUpperCase();
@@ -131,7 +134,7 @@ var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, question
 
 		questionSet_$ = selectedQuestion_$;
 		var solution_$ = questionSet_$.find(".solution");
-		var responseList_$ = $(questionSet_$.find(".reponse"));
+		var responseList_$ = $(questionSet_$.find(".response"));
 		var question_$ = $(questionSet_$.find(".question"));
 		var reponse_num = Number(solution_$.text());
 		content_$.append(display_$.children());
@@ -185,7 +188,7 @@ var Quizz_jb = function(content_$, display_$, userTrack_$, endScreen_$, question
 		$('#timer').show(600);
 
 		$(context.questions_$.children()).attr("success_bool", "false").attr("selected_bool", "false");
-		context.questions_$.find('.reponse').removeClass('true').removeClass('false').removeClass('missedTrue').removeClass('unsellectedFalse').addClass('button');
+		context.questions_$.find('.response').removeClass('true').removeClass('false').removeClass('missedTrue').removeClass('unsellectedFalse').addClass('button');
 		context.userTrack_$.empty();
 
 		var space_pix = Math.floor((context.userTrack_$.width() - (IMG_WIDTH * context.questions_num)) / (questions_num - 1));
